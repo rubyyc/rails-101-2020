@@ -6,6 +6,8 @@
       <%= link_to("Edit", edit_group_path(@group), class: "btn btn-primary pull-right")%>
     <% end %>
   </div>
+
+
   <h2><%= @group.title %></h2>
   <p><%= @group.description %></p>
 
@@ -17,6 +19,13 @@
         <th>发表时间</th>
       </tr>
   </thead>
+    <span class="pull-right">
+  <% if current_user && current_user.is_member_of?(@group) %>
+    <label class="label label-success"> 群组成员 </label>
+  <% else %>
+    <label class="label label-warning"> 不是群组成员 </label>
+  <% end %>
+</span>
     <tbody>
     <% @posts.each do |post| %>
         <tr>
