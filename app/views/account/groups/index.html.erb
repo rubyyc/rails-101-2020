@@ -2,15 +2,15 @@
 
   <h2 class="text-center"> 我加入的讨论版 </h2>
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th> # </th>
-      <th> Title </th>
-      <th> Description </th>
-      <th> Post Count </th>
-      <th> Last Update </th>
-    </tr>
+  <table class="table table-striped table-bordered table-hover text-center">
+    <thead >
+      <tr>
+        <td> # </td>
+        <td> Title </td>
+        <td> Description </td>
+        <td> Post Count </td>
+        <td> Last Update </td>
+      </tr>
     </thead>
 
     <tbody>
@@ -18,7 +18,7 @@
       <tr>
         <td> # </td>
         <td> <%= link_to(group.title, group_path(group)) %> </td>
-        <td> <%= group.description %> </td>
+        <td> <%= render_group_description(group) %> </td>
         <td> <%= group.posts.count %> </td>
         <td> <%= group.updated_at %> </td>
       </tr>

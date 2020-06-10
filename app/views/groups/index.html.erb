@@ -2,13 +2,14 @@
   <div class="group">
     <%= link_to("New group", new_group_path, class: "btn btn-primary pull-right") %>
   </div>
-  <table class="table table-hover">
+  <table class="table table-striped table-bordered table-hover text-center">
     <thead>
     <tr>
       <td>#</td>
       <td>Title</td>
       <td>Description</td>
       <td>Creator</td>
+      <td>操作</td>
     </tr>
     </thead>
     <tbody>
@@ -16,7 +17,7 @@
       <tr>
         <td>#</td>
         <td><%= link_to(group.title, group_path(group)) %></td>
-        <td><%= simple_format(group.description) %></td>
+        <td><%= render_group_description(group) %></td>
         <td><%= group.user.email %></td>
         <td>
           <% if current_user && current_user == group.user %>
